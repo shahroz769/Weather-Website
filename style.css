@@ -137,3 +137,30 @@ body{
     background: rgb(46, 51, 56);
     background: linear-gradient(180deg, rgba(46, 51, 56, 1) 0%, rgba(40, 67, 107, 1) 36%);
 }
+@media only screen and (max-width: 600px) {
+    body{
+        background: #171d25;
+    }
+    .card {
+        width: 100%;
+        max-width: 100%;
+        color: #fff;
+        margin: 0;
+        border-radius: 0px;
+        padding: 40px 20px;
+        text-align: center;
+        height: 100%;
+        filter: none;
+    }
+    .details{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .col{
+        width: 80%;
+        gap: 60px;
+    }
+    .app img{
+        display: none;
+    }
+}
