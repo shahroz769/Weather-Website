@@ -275,3 +275,4 @@ gsap.to("#appImg", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)',
 gsap.to(".card", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, ease: "power4.out", duration: 1.5 }, "-=1.3")
 gsap.fromTo("#doodle", { y: '-200px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=1")
 gsap.fromTo(".search", { y: '-50px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=1.3")
+gsap.fromTo(".search", { y: '-50px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=1.3")
