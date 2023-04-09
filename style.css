@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
+    /* outline: 1px solid red; */
 }
 
 body {
@@ -84,13 +85,17 @@ body {
     margin-bottom: 20px;
 }
 
+.location h4{
+    font-size: 16px;
+}
+
 .weather h1 {
     font-size: 80px;
     font-weight: 600;
 }
 
 .weather h2 {
-    font-size: 45px;
+    font-size: 36px;
     font-weight: 500;
     margin-top: -20px;
 }
@@ -101,15 +106,47 @@ body {
     margin-top: -20px;
 }
 
+.temp_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.min-max{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.min-max p{
+    font-size: 12px;
+}
+
+.location{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
 .details {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0 25px;
     margin-top: 50px;
-    max-width: 400px;
     flex-wrap: wrap;
+    white-space: nowrap;
     row-gap: 25px; 
+}
+
+.details_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .col {
@@ -117,12 +154,14 @@ body {
     align-items: center;
     text-align: left;
     flex: 1;
+    gap: 10px;
 }
 
 .col2 {
+    width: 100%;
     display: flex;
     align-items: center;
-    text-align: left;
+    text-align: center;
     justify-content: center;
     flex: 1;
     margin-top: -30px;
@@ -135,7 +174,7 @@ body {
 
 .humidity,
 .wind, .sunrise, .sunset{
-    font-size: 24px;
+    font-size: 16px;
     margin-top: -6px;
     text-align: left;
 }
@@ -150,7 +189,8 @@ body {
 
 .date{
     font-size: 24px;
-    margin-top: -6px;
+    margin-top: 20px;
+    margin-bottom: -30px;
     text-align: center;
 }
 
@@ -202,18 +242,23 @@ body {
         min-height: 100vh;
     }
 
+    .date{
+        text-align: center;
+    }
+    
     .details {
         flex-direction: column;
         justify-content: center;
         gap: 20px;
         padding: 0;
+        min-width: 250px;
+        align-items: center;
     }
 
     .col {
-        width: 80%;
+        width: 100%;
         gap: 20px;
-        padding: 0 1vh 0 2vh;
-        
+        padding: 0 2vh 0 2vh;
     }
 
     .app img {

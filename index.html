@@ -28,9 +28,18 @@
         <div class="error">Error in fetching data</div>
         <div class="weather">
             <img src="" class="weather-icon">
-            <h3>Cloudy | Feels like 27°C </h3>
-            <h1 class="temp"></h1>
-            <h2 class="city"></h2>
+            <h3></h3>
+            <div class="temp_section">
+                <h1 class="temp"></h1>
+                <div class="min-max">
+                    <p class="max"></p>
+                    <p class="min"></p>
+                </div>
+            </div>
+            <div class="location">
+                <h2 class="city"></h2>
+                <h4 class="country"></h4>
+            </div>
             <div class="details_section">
                 <div class="details">
                     <div class="col2">
@@ -67,10 +76,24 @@
                             <p class="sunset"></p>
                             <p>Sunset</p>
                         </div>
+                    </div>
+                    <div class="col">
+                        <img id="visibility" src="">
+                        <div>
+                            <p class="visibility"></p>
+                            <p>Visibility</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img id="pressure" src="">
+                        <div>
+                            <p class="pressure"></p>
+                            <p>Pressure</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

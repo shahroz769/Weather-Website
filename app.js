@@ -7,6 +7,8 @@ window.getWeather = function () {
     let weatherInfo = document.querySelector("h3");
     let sunrisePic = document.querySelector("#sunrise");
     let sunsetPic = document.querySelector("#sunset");
+    let visible = document.querySelector("#visibility");
+    let press = document.querySelector("#pressure");
     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
         .then(function (response) {
             console.log(response.data);
@@ -16,8 +18,13 @@ window.getWeather = function () {
             document.querySelector("h3").innerHTML = weatherInfo
             document.querySelector(".temp").innerHTML = Math.round(response.data.main.temp) + "°C"
             document.querySelector(".city").innerHTML = response.data.name
+            document.querySelector(".country").innerHTML = `, ${response.data.sys.country}`
             document.querySelector(".humidity").innerHTML = `${response.data.main.humidity}%`
             document.querySelector(".wind").innerHTML = `${response.data.wind.speed} km/hr`
+            document.querySelector(".max").innerHTML = `Max ${response.data.main.temp_max} °C`
+            document.querySelector(".min").innerHTML = `Min ${response.data.main.temp_min} °C`
+            document.querySelector(".visibility").innerHTML = ((+response.data.visibility)/1000) + " KM"
+            document.querySelector(".pressure").innerHTML = `${response.data.main.pressure} hPA`
             let x = response.data.coord.lat
             let y = response.data.coord.lon
             let dt = response.data.dt
@@ -44,6 +51,8 @@ window.getWeather = function () {
                                 wind.src = "./images/wind-dark.png"
                                 sunrisePic.src = "./images/sunrise-dark.png"
                                 sunsetPic.src = "./images/sunset-dark.png"
+                                visible.src = "./images/visibility-dark.png"
+                                press.src = "./images/pressure-dark.png"
                             }
                             else if (hour >= 17 && dt < sunSet) {
                                 card.classList.remove("day", "night")
@@ -52,6 +61,8 @@ window.getWeather = function () {
                                 wind.src = "./images/wind-light.png"
                                 sunrisePic.src = "./images/sunrise-light.png"
                                 sunsetPic.src = "./images/sunset-light.png"
+                                visible.src = "./images/visibility-light.png"
+                                press.src = "./images/pressure-light.png"
                             }
                             else if (dt > sunSet || dt < sunRise) {
                                 card.classList.remove("day", "evening",)
@@ -60,6 +71,8 @@ window.getWeather = function () {
                                 wind.src = "./images/wind-light.png"
                                 sunrisePic.src = "./images/sunrise-light.png"
                                 sunsetPic.src = "./images/sunset-light.png"
+                                visible.src = "./images/visibility-light.png"
+                                press.src = "./images/pressure-light.png"
                                 if (weatherCondition === "Clouds") {
                                     weatherIcon.src = "./images/nightclouds.png"
                                 } else if (weatherCondition === "Clear") {
