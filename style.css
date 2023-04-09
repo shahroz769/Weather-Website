@@ -53,7 +53,8 @@ body{
     outline: 0;
     background: #ebfffc;
     border-radius: 50%;
-    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
     height: 60px;
     cursor: pointer;
     display: flex;
@@ -137,7 +138,12 @@ body{
     background: rgb(46, 51, 56);
     background: linear-gradient(180deg, rgba(46, 51, 56, 1) 0%, rgba(40, 67, 107, 1) 36%);
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1439px) {
+    .app img{
+        display: none;
+    }
+}
+@media only screen and (max-width: 500px) {
     body{
         background: #171d25;
     }
@@ -163,43 +169,16 @@ body{
     .app img{
         display: none;
     }
-    .search {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
     }
-    
     .search input {
-        border: 0;
-        outline: 0;
-        background: #ebfffc;
-        color: #555;
-        padding: 10px 25px;
         height: 50px;
-        border-radius: 30px;
-        flex: 1;
-        margin-right: 16px;
-        font-size: 18px;
     }
-    
-    .search button {
-        border: 0;
-        outline: 0;
-        background: #ebfffc;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    /* .search button img, .search button {
+        display: none; */
     }
-    .search button:active{
-        background-color: #cedbd9;
+    @media only screen and (max-width: 320px) {
+        .col{
+            width: 80%;
+            gap: 30px;
+        }
     }
-    
-    .search button img, .search button {
-        display: none;
-    }
-}
