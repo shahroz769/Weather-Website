@@ -71,13 +71,6 @@ window.getWeather = function () {
                                 sunsetPic.src = "./images/sunset-light.png"
                                 visible.src = "./images/visibility-light.png"
                                 press.src = "./images/pressure-light.png"
-                                // if (weatherCondition === "Clouds") {
-                                //     weatherIcon.src = "./images/nightclouds.png"
-                                // } else if (weatherCondition === "Clear") {
-                                //     weatherIcon.src = "./images/nightclear.png"
-                                // } else if (weatherCondition === "Drizzle") {
-                                //     weatherIcon.src = "./images/nightdrizzle.png"
-                                // }
                             }
                             let year = time.slice(0, 4)
                             let month = +time.slice(5, 7)
@@ -280,5 +273,5 @@ window.getSun = function () {
 }
 gsap.to("#appImg", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, ease: "power4.out", duration: 1.5 })
 gsap.to(".card", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, ease: "power4.out", duration: 1.5 }, "-=1.3")
-gsap.to("#doodle", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, ease: "power4.out", duration: 1.5 }, "-=1.3")
-gsap.to(".search", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, ease: "power4.out", duration: 1.5 }, "-=1.3")
+gsap.fromTo("#doodle", { y: '-200px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=1")
+gsap.fromTo(".search", { y: '-50px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=1.3")
