@@ -18,7 +18,7 @@ body {
 }
 
 #doodle{
-    width: 400px;
+    width: 100%;
     margin: auto;
 }
 
@@ -30,7 +30,7 @@ body {
 
 .card {
     filter: drop-shadow(5px 5px 10px #000);
-    width: 90%;
+    width: 100%;
     max-width: 470px;
     background: #171d25;
     color: #fff;
