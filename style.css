@@ -144,13 +144,9 @@ body{
     }
 }
 @media only screen and (max-width: 500px) {
-    body{
-        background: #171d25;
-    }
     .card {
         width: 100%;
         max-width: 100%;
-        color: #fff;
         margin: 0;
         border-radius: 0px;
         padding: 40px 20px;
@@ -171,10 +167,7 @@ body{
     }
     }
     .search input {
-        height: 50px;
-    }
-    /* .search button img, .search button {
-        display: none; */
+        min-width: 190px;
     }
     @media only screen and (max-width: 320px) {
         .col{
