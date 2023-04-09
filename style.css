@@ -281,8 +281,8 @@ body {
     .search input {
         min-width: 190px;
         margin-right: 0;
-        height: 40px;
-        margin-top: 80px;
+        height: 50px;
+        margin-top: 40px;
     }
 
     .search button {
