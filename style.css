@@ -6,9 +6,17 @@
     /* outline: 1px solid red; */
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     background-color: #2E3338;
     ;
+}
+
+.header {
+    display: none;
 }
 
 .app img {
@@ -69,7 +77,7 @@ body {
     background-color: #cedbd9;
 }
 
-.search button div{
+.search button div {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,7 +93,7 @@ body {
     margin-bottom: 20px;
 }
 
-.location h4{
+.location h4 {
     font-size: 16px;
 }
 
@@ -106,14 +114,14 @@ body {
     margin-top: -20px;
 }
 
-.temp_section{
+.temp_section {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.min-max{
+.min-max {
     display: flex;
     justify-content: center;
     align-items: baseline;
@@ -121,11 +129,11 @@ body {
     gap: 20px;
 }
 
-.min-max p{
+.min-max p {
     font-size: 12px;
 }
 
-.location{
+.location {
     display: flex;
     justify-content: center;
     align-items: baseline;
@@ -139,10 +147,10 @@ body {
     margin-top: 50px;
     flex-wrap: wrap;
     white-space: nowrap;
-    row-gap: 25px; 
+    row-gap: 25px;
 }
 
-.details_section{
+.details_section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -173,7 +181,9 @@ body {
 }
 
 .humidity,
-.wind, .sunrise, .sunset{
+.wind,
+.sunrise,
+.sunset {
     font-size: 16px;
     margin-top: -6px;
     text-align: left;
@@ -187,7 +197,7 @@ body {
     text-align: center;
 }
 
-.date{
+.date {
     font-size: 24px;
     margin-top: 20px;
     margin-bottom: -30px;
@@ -242,10 +252,10 @@ body {
         min-height: 100vh;
     }
 
-    .date{
+    .date {
         text-align: center;
     }
-    
+
     .details {
         flex-direction: column;
         justify-content: center;
@@ -264,15 +274,46 @@ body {
     .app img {
         display: none;
     }
-.search input {
-    min-width: 190px;
-    margin-right: 0;
-    height: 40px;
+
+    .search input {
+        min-width: 190px;
+        margin-right: 0;
+        height: 40px;
+        margin-top: 80px;
+    }
+
+    .search button {
+        display: none;
+    }
+
+    .header {
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        position: fixed;
+        top: 0;
+        margin-bottom: 100px;
+        left: 0;
+        z-index: 9999;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.23);
+        backdrop-filter: blur(11.8px);
+        -webkit-backdrop-filter: blur(11.8px);
+    }
+
+    .header img {
+        width: 60px;
+    }
+
+    .header p {
+        font-size: 24px;
+        color: #fff;
+        font-weight: 600;
+    }
 }
-.search button {
-    display: none;
-}
-}
+
 @media only screen and (max-width: 320px) {
     .col {
         width: 80%;
