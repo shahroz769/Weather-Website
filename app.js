@@ -191,7 +191,7 @@ window.getWeather = function () {
             document.querySelector(".error").style.display = "none"
             document.querySelector("#doodle").style.display = "none"
             gsap.fromTo(".weather", { opacity: 0 }, { opacity: 1, ease: "power4.out", duration: 2 })
-            gsap.fromTo(".weather *", { y: '20px' }, { y: 0, ease: "power4.out", duration: 1 })
+            gsap.fromTo(".weather *", { y: '20px' }, { y: 0, ease: "power4.out", stagger:.01 ,duration: 1 })
             gsap.fromTo(".weather-icon", { y: '-50px' }, { y: 0, ease: "power4.out", duration: 1 })
         })
         .catch(function (error) {

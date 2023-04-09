@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-.weather{
+.weather {
     opacity: 0;
 }
 
@@ -21,12 +21,12 @@ body {
     display: none;
 }
 
-#doodle{
+#doodle {
     width: 100%;
     margin: auto;
 }
 
-a{
+a {
     text-decoration: none;
     cursor: pointer;
 }
@@ -71,7 +71,7 @@ a{
     font-size: 18px;
 }
 
-#appImg{
+#appImg {
     clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
     opacity: 0;
     transform: translateY(100px);
@@ -82,7 +82,7 @@ a{
     outline: 0;
     background: #ebfffc;
     border-radius: 50%;
-    min-width: 60px;
+    width: 60px;
     max-width: 60px;
     height: 60px;
     cursor: pointer;
@@ -294,15 +294,20 @@ a{
         display: none;
     }
 
-    .search input {
-        min-width: 190px;
-        margin-right: 0;
-        height: 45px;
+    form {
         margin-top: 55px;
     }
+    .search input{
+        height: 45px;
+        font-size: 16px;
+    }
+    .search button{
+        width: 45px;
+        height: 45px;
+    }
 
-    .search button {
-        display: none;
+    .search button img{
+        width: 14px;
     }
 
     .header {
