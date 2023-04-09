@@ -234,19 +234,7 @@ a {
 }
 
 .day {
-    background: rgb(124, 184, 255);
-    background: linear-gradient(180deg, rgba(124, 184, 255, 1) 0%, rgba(223, 255, 251, 1) 57%);
     color: #555;
-}
-
-.evening {
-    background: rgb(48, 72, 101);
-    background: linear-gradient(180deg, rgba(48, 72, 101, 1) 0%, rgba(231, 175, 123, 1) 43%);
-}
-
-.night {
-    background: rgb(46, 51, 56);
-    background: linear-gradient(180deg, rgba(46, 51, 56, 1) 0%, rgba(40, 67, 107, 1) 36%);
 }
 
 @media only screen and (max-width: 1439px) {
