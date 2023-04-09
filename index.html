@@ -1,47 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="icon" type="image/x-icon" href="./images/clear.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="app">
         <img src="./images/Weather App UI Design.png">
     </div>
     <div class="card">
         <form class="search" onsubmit="getWeather(); return false">
-            <input type="text" placeholder="Enter city name" spellcheck="false" id="cityName">
-            <button type="submit"><div><img src="./images/search.png"></div></button>
+            <input type="text" placeholder="Search city..." spellcheck="false" id="cityName">
+            <button type="submit">
+                <div><img src="./images/search.png"></div>
+            </button>
         </form>
         <div class="error">Invalid city name</div>
         <div class="weather">
             <img src="" class="weather-icon">
+            <h3>Cloudy | Feels like 27°C </h3>
             <h1 class="temp"></h1>
             <h2 class="city"></h2>
-            <div class="details">
-                <div class="col">
-                    <img id="humidity" src="./images/humidity.png">
-                    <div>
-                        <p class="humidity"></p>
-                        <p>Humidity</p>
+            <div class="details_section">
+                <div class="details">
+                    <div class="col2">
+                        <div>
+                            <p class="date"></p>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <img id="wind" src="./images/wind.png">
-                    <div>
-                        <p class="wind"></p>
-                        <p>Wind Speed</p>
+                <div class="details">
+                    <div class="col">
+                        <img id="humidity" src="./images/humidity-light.png">
+                        <div>
+                            <p class="humidity"></p>
+                            <p>Humidity</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img id="wind" src="./images/wind-light.png">
+                        <div>
+                            <p class="wind"></p>
+                            <p>Wind Speed</p>
+                        </div>
                     </div>
                 </div>
+                <!-- <div class="details">
+                    <div class="col">
+                        <img id="sunrise" src="./images/humidity.png">
+                        <div>
+                            <p class="sunrise"></p>
+                            <p>Sunrise</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img id="sunset" src="./images/wind.png">
+                        <div>
+                            <p class="sunset"></p>
+                            <p>Sunset</p>
+                        </div>
+                    </div> -->
             </div>
         </div>
+    </div>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="app.js" type="module"></script>
+
 </html>
