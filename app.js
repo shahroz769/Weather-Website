@@ -24,6 +24,11 @@ window.getWeather = function () {
             axios.get(`https://maps.googleapis.com/maps/api/timezone/json?location=${x}, ${y}&timestamp=${dt}&key=AIzaSyBHaS_mpmdywnD2gwqk2MRjP0jM0LoHsbM`)
                 .then(function (response) {
                     let timeZoneId = response.data.timeZoneId;
+                    console.log(timeZoneId)
+                    if (timeZoneId == "Asia/Calcutta") {
+                        timeZoneId = "Asia/kolkata"
+                    }
+                    console.log(timeZoneId)
                     axios.get(`https://worldtimeapi.org/api/timezone/${timeZoneId}`)
                         .then(function (response) {
                             let card = document.querySelector(".card")
@@ -162,6 +167,8 @@ window.getWeather = function () {
                             humidity.src = "./images/humidity-light.png"
                             wind.src = "./images/wind-light.png"
                             document.querySelector(".date").innerHTML = "Error in fetching time data"
+                            document.querySelector(".error").style.display = "block"
+                            document.querySelector(".weather").style.display = "none"
                         })
                 })
                 .catch(function (error) {
