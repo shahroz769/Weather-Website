@@ -5,6 +5,8 @@ window.getWeather = function () {
     let humidity = document.querySelector("#humidity");
     let wind = document.querySelector("#wind");
     let weatherInfo = document.querySelector("h3");
+    let sunrisePic = document.querySelector("#sunrise");
+    let sunsetPic = document.querySelector("#sunset");
     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
         .then(function (response) {
             console.log(response.data);
@@ -40,18 +42,24 @@ window.getWeather = function () {
                                 card.classList.add("day")
                                 humidity.src = "./images/humidity-dark.png"
                                 wind.src = "./images/wind-dark.png"
+                                sunrisePic.src = "./images/sunrise-dark.png"
+                                sunsetPic.src = "./images/sunset-dark.png"
                             }
                             else if (hour >= 17 && dt < sunSet) {
                                 card.classList.remove("day", "night")
                                 card.classList.add("evening")
                                 humidity.src = "./images/humidity-light.png"
                                 wind.src = "./images/wind-light.png"
+                                sunrisePic.src = "./images/sunrise-light.png"
+                                sunsetPic.src = "./images/sunset-light.png"
                             }
                             else if (dt > sunSet || dt < sunRise) {
                                 card.classList.remove("day", "evening",)
                                 card.classList.add("night")
                                 humidity.src = "./images/humidity-light.png"
                                 wind.src = "./images/wind-light.png"
+                                sunrisePic.src = "./images/sunrise-light.png"
+                                sunsetPic.src = "./images/sunset-light.png"
                                 if (weatherCondition === "Clouds") {
                                     weatherIcon.src = "./images/nightclouds.png"
                                 } else if (weatherCondition === "Clear") {
@@ -130,35 +138,6 @@ window.getWeather = function () {
                             let formatedTime = `${hour}:${minute} ${ampm}`
                             document.querySelector(".date").innerHTML = formatedDate + " | " + formatedTime
                             console.log(response.data)
-                            // let minuteInHours = minute / 60
-                            // let totalHours = hour + minuteInHours
-                            // console.log(totalHours)
-                            // let dt_Sunrise = dt - sunRise
-                            // let dt_Sunset = dt - sunSet
-                            // let dt_SunriseInHours = (dt_Sunrise / (60 * 60))
-                            // let dt_SunsetInHours = (dt_Sunset / (60 * 60))
-                            // let sunRiseTotalHours
-                            // let sunSetTotalHours
-                            // if (dt_Sunrise < 0 && dt_Sunset < 0) {
-                            //     sunRiseTotalHours = totalHours - dt_SunriseInHours
-                            //     sunSetTotalHours = totalHours - dt_SunsetInHours - 12
-                            // }
-                            // else if (dt_Sunrise > 0 && dt_Sunset < 0) {
-                            //     sunRiseTotalHours = totalHours - dt_SunriseInHours
-                            //     sunSetTotalHours = totalHours - dt_SunsetInHours - 12
-                            // }
-                            // else if (dt_Sunrise > 0 && dt_Sunset > 0) {
-                            //     sunRiseTotalHours = totalHours - dt_SunriseInHours
-                            //     sunSetTotalHours = totalHours - dt_SunsetInHours - 12
-                            // }
-                            // console.log(sunRiseTotalHours, sunSetTotalHours)
-                            // console.log(sunRiseTotalHours.toString().split(".")[0]); ///before
-                            // console.log(sunSetTotalHours.toString().split(".")[0]); ///before
-                            // let sunRiseMinutes = (sunRiseTotalHours % 1)
-                            // let sunSetMinutes = (sunSetTotalHours % 1)
-                            // console.log(sunRiseMinutes, sunSetMinutes)
-                            // console.log(sunSetHoursExtracted, sunSetHoursExtracted)
-                            // console.log(dt_Sunrise, dt_Sunset)
                         })
                         .catch(function (error) {
                             console.log(error.data);
@@ -203,5 +182,78 @@ window.getWeather = function () {
             document.querySelector(".error").style.display = "block"
             document.querySelector(".weather").style.display = "none"
             card.classList.remove("day", "evening", "night")
+        })
+}
+window.getSun = function () {
+    let cityName = document.querySelector("#cityName").value;
+    let API_KEY = '0d28b08855d3bdaa742b92c7ef323ee4'
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
+        .then(function (response) {
+            console.log(response.data);
+            let x = response.data.coord.lat
+            let y = response.data.coord.lon
+            let dt = response.data.dt
+            let sunRise = response.data.sys.sunrise
+            let sunSet = response.data.sys.sunset
+            axios.get(`https://maps.googleapis.com/maps/api/timezone/json?location=${x}, ${y}&timestamp=${dt}&key=AIzaSyBHaS_mpmdywnD2gwqk2MRjP0jM0LoHsbM`)
+                .then(function (response) {
+                    let timeZoneId = response.data.timeZoneId;
+                    console.log(timeZoneId)
+                    if (timeZoneId == "Asia/Calcutta") {
+                        timeZoneId = "Asia/kolkata"
+                    }
+                    console.log(timeZoneId)
+                    axios.get(`https://worldtimeapi.org/api/timezone/${timeZoneId}`)
+                        .then(function (response) {
+                            let card = document.querySelector(".card")
+                            let time = (response.data.datetime);
+                            let hour = +time.slice(11, 13)
+                            let minute = +time.slice(14, 16)
+                            let minuteInHours = minute / 60
+                            let totalHours = hour + minuteInHours
+                            console.log(totalHours)
+                            let dt_Sunrise = dt - sunRise
+                            let dt_Sunset = dt - sunSet
+                            let dt_SunriseInHours = (dt_Sunrise / (60 * 60))
+                            let dt_SunsetInHours = (dt_Sunset / (60 * 60))
+                            let sunRiseTotalHours
+                            let sunSetTotalHours
+                            if (dt_Sunrise < 0 && dt_Sunset < 0) {
+                                sunRiseTotalHours = totalHours - dt_SunriseInHours
+                                sunSetTotalHours = totalHours - dt_SunsetInHours - 12
+                            }
+                            else if (dt_Sunrise > 0 && dt_Sunset < 0) {
+                                sunRiseTotalHours = totalHours - dt_SunriseInHours
+                                sunSetTotalHours = totalHours - dt_SunsetInHours - 12
+                            }
+                            else if (dt_Sunrise > 0 && dt_Sunset > 0) {
+                                sunRiseTotalHours = totalHours - dt_SunriseInHours
+                                sunSetTotalHours = totalHours - dt_SunsetInHours - 12
+                            }
+                            console.log(sunRiseTotalHours, sunSetTotalHours)
+                            let hr = (sunRiseTotalHours.toString().split(".")[0]); ///before
+                            let hs = (sunSetTotalHours.toString().split(".")[0]); ///before
+                            let sunRiseMinutes = (sunRiseTotalHours % 1)
+                            let sunSetMinutes = (sunSetTotalHours % 1)
+                            let sr = Math.round(sunRiseMinutes * 60)
+                            let ss = Math.round(sunSetMinutes * 60)
+                            if (sr < 10) {
+                                sr = "0" + sr
+                            }
+                            if (ss < 10) {
+                                ss = "0" + ss
+                            }
+                            let srt = `0${hr}:${sr} AM`
+                            let sst = `0${hs}:${ss} PM`
+                            document.querySelector(".sunrise").innerHTML = srt
+                            document.querySelector(".sunset").innerHTML = sst
+                            console.log(srt, sst)
+                        })
+                })
+                .catch(function (error) {
+                    console.log(error.data);
+                })
+        })
+        .catch(function (error) {
         })
 }

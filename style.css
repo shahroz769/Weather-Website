@@ -107,12 +107,16 @@ body {
     justify-content: space-between;
     padding: 0 25px;
     margin-top: 50px;
+    max-width: 400px;
+    flex-wrap: wrap;
+    row-gap: 25px; 
 }
 
 .col {
     display: flex;
     align-items: center;
     text-align: left;
+    flex: 1;
 }
 
 .col2 {
@@ -130,7 +134,7 @@ body {
 }
 
 .humidity,
-.wind{
+.wind, .sunrise, .sunset{
     font-size: 24px;
     margin-top: -6px;
     text-align: left;
