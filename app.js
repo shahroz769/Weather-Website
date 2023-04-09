@@ -166,7 +166,6 @@ window.getWeather = function () {
                             card.classList.remove("day", "evening", "night")
                             humidity.src = "./images/humidity-light.png"
                             wind.src = "./images/wind-light.png"
-                            document.querySelector(".date").innerHTML = "Error in fetching time data"
                             document.querySelector(".error").style.display = "block"
                             document.querySelector(".weather").style.display = "none"
                         })
