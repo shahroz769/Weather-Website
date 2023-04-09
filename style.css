@@ -316,7 +316,7 @@ a{
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 25px;
+        gap: 12px;
         position: fixed;
         top: 0;
         margin-bottom: 100px;
