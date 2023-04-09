@@ -23,7 +23,7 @@ window.getWeather = function () {
             document.querySelector(".wind").innerHTML = `${response.data.wind.speed} km/hr`
             document.querySelector(".max").innerHTML = `Max ${response.data.main.temp_max} °C`
             document.querySelector(".min").innerHTML = `Min ${response.data.main.temp_min} °C`
-            document.querySelector(".visibility").innerHTML = ((+response.data.visibility)/1000) + " KM"
+            document.querySelector(".visibility").innerHTML = ((+response.data.visibility) / 1000) + " KM"
             document.querySelector(".pressure").innerHTML = `${response.data.main.pressure} hPA`
             let x = response.data.coord.lat
             let y = response.data.coord.lon
@@ -71,13 +71,13 @@ window.getWeather = function () {
                                 sunsetPic.src = "./images/sunset-light.png"
                                 visible.src = "./images/visibility-light.png"
                                 press.src = "./images/pressure-light.png"
-                                if (weatherCondition === "Clouds") {
-                                    weatherIcon.src = "./images/nightclouds.png"
-                                } else if (weatherCondition === "Clear") {
-                                    weatherIcon.src = "./images/nightclear.png"
-                                } else if (weatherCondition === "Drizzle") {
-                                    weatherIcon.src = "./images/nightdrizzle.png"
-                                }
+                                // if (weatherCondition === "Clouds") {
+                                //     weatherIcon.src = "./images/nightclouds.png"
+                                // } else if (weatherCondition === "Clear") {
+                                //     weatherIcon.src = "./images/nightclear.png"
+                                // } else if (weatherCondition === "Drizzle") {
+                                //     weatherIcon.src = "./images/nightdrizzle.png"
+                                // }
                             }
                             let year = time.slice(0, 4)
                             let month = +time.slice(5, 7)
@@ -165,16 +165,25 @@ window.getWeather = function () {
                     console.log(error.data);
                 })
             if (weatherCondition === "Clouds") {
-                weatherIcon.src = "./images/clouds.png"
-            }
-            else if (weatherCondition === "Clear") {
-                weatherIcon.src = "./images/clear.png"
-            }
-            else if (weatherCondition === "Rain") {
+                if (dt > sunSet || dt < sunRise) {
+                    weatherIcon.src = "./images/nightclouds.png"
+                } else {
+                    weatherIcon.src = "./images/clouds.png"
+                }
+            } else if (weatherCondition === "Clear") {
+                if (dt > sunSet || dt < sunRise) {
+                    weatherIcon.src = "./images/nightclear.png"
+                } else {
+                    weatherIcon.src = "./images/clear.png"
+                }
+            } else if (weatherCondition === "Rain") {
                 weatherIcon.src = "./images/rain.png"
-            }
-            else if (weatherCondition === "Drizzle") {
-                weatherIcon.src = "./images/drizzle.png"
+            } else if (weatherCondition === "Drizzle") {
+                if (dt > sunSet || dt < sunRise) {
+                    weatherIcon.src = "./images/nightdrizzle.png"
+                } else {
+                    weatherIcon.src = "./images/drizzle.png"
+                }
             }
             else if (weatherCondition === "Mist") {
                 weatherIcon.src = "./images/mist.png"
@@ -188,6 +197,9 @@ window.getWeather = function () {
             document.querySelector(".weather").style.display = "block"
             document.querySelector(".error").style.display = "none"
             document.querySelector("#doodle").style.display = "none"
+            gsap.fromTo(".weather", { opacity: 0 }, { opacity: 1, ease: "power4.out", duration: 2 })
+            gsap.fromTo(".weather *", { y: '20px' }, { y: 0, ease: "power4.out", duration: 1 })
+            gsap.fromTo(".weather-icon", { y: '-50px' }, { y: 0, ease: "power4.out", duration: 1 })
         })
         .catch(function (error) {
             let card = document.querySelector(".card")
@@ -266,3 +278,7 @@ window.getSun = function () {
         .catch(function (error) {
         })
 }
+gsap.to("#appImg", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, ease: "power4.out", duration: 1.5 })
+gsap.to(".card", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, ease: "power4.out", duration: 1.5 }, "-=1.3")
+gsap.to("#doodle", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, ease: "power4.out", duration: 1.5 }, "-=1.3")
+gsap.to(".search", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, ease: "power4.out", duration: 1.5 }, "-=1.3")
