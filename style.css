@@ -5,11 +5,12 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: #2E3338;;
+body {
+    background-color: #2E3338;
+    ;
 }
 
-.app img{
+.app img {
     width: 300px;
     position: absolute;
     margin: 30px 0 0 100px;
@@ -33,6 +34,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
+
 }
 
 .search input {
@@ -61,7 +63,8 @@ body{
     justify-content: center;
     align-items: center;
 }
-.search button:active{
+
+.search button:active {
     background-color: #cedbd9;
 }
 
@@ -138,11 +141,13 @@ body{
     background: rgb(46, 51, 56);
     background: linear-gradient(180deg, rgba(46, 51, 56, 1) 0%, rgba(40, 67, 107, 1) 36%);
 }
+
 @media only screen and (max-width: 1439px) {
-    .app img{
+    .app img {
         display: none;
     }
 }
+
 @media only screen and (max-width: 500px) {
     .card {
         width: 100%;
@@ -153,25 +158,28 @@ body{
         text-align: center;
         height: 100%;
         filter: none;
+        min-height: 100vh;
     }
-    .details{
+
+    .details {
         flex-direction: column;
         gap: 20px;
     }
-    .col{
+
+    .col {
         width: 80%;
         gap: 60px;
     }
-    .app img{
+
+    .app img {
         display: none;
     }
+.search input {
+    min-width: 190px;
+}
+@media only screen and (max-width: 320px) {
+    .col {
+        width: 80%;
+        gap: 30px;
     }
-    .search input {
-        min-width: 190px;
-    }
-    @media only screen and (max-width: 320px) {
-        .col{
-            width: 80%;
-            gap: 30px;
-        }
-    }
+}
