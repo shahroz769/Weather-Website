@@ -113,7 +113,6 @@ body {
     display: flex;
     align-items: center;
     text-align: left;
-    justify-content: space-between;
 }
 
 .col2 {
@@ -131,9 +130,24 @@ body {
 }
 
 .humidity,
-.wind, .date, .time {
+.wind{
     font-size: 24px;
     margin-top: -6px;
+    text-align: left;
+}
+
+.col p {
+    text-align: left;
+}
+
+.col2 p {
+    text-align: center;
+}
+
+.date{
+    font-size: 24px;
+    margin-top: -6px;
+    text-align: center;
 }
 
 .weather {
@@ -186,12 +200,16 @@ body {
 
     .details {
         flex-direction: column;
+        justify-content: center;
         gap: 20px;
+        padding: 0;
     }
 
     .col {
         width: 80%;
-        gap: 60px;
+        gap: 20px;
+        padding: 0 1vh 0 2vh;
+        
     }
 
     .app img {
@@ -204,6 +222,7 @@ body {
 @media only screen and (max-width: 320px) {
     .col {
         width: 80%;
-        gap: 30px;
+        gap: 20px;
+        padding: 0 0.5vh 0 1vh;
     }
 }
