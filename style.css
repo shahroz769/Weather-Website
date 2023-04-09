@@ -18,9 +18,8 @@ body {
 }
 
 #doodle{
-    width: 470px;
-    position: relative;
-    right: 25px;
+    width: 400px;
+    margin: auto;
 }
 
 .app img {
