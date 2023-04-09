@@ -3,7 +3,6 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
-    /* outline: 1px solid red; */
 }
 
 ::-webkit-scrollbar {
@@ -11,12 +10,17 @@
 }
 
 body {
-    background-color: #2E3338;
-    ;
+    background-color: #293241;
 }
 
 .header {
     display: none;
+}
+
+#doodle{
+    width: 470px;
+    position: relative;
+    right: 25px;
 }
 
 .app img {

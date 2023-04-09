@@ -33,11 +33,9 @@ window.getWeather = function () {
             axios.get(`https://maps.googleapis.com/maps/api/timezone/json?location=${x}, ${y}&timestamp=${dt}&key=AIzaSyBHaS_mpmdywnD2gwqk2MRjP0jM0LoHsbM`)
                 .then(function (response) {
                     let timeZoneId = response.data.timeZoneId;
-                    console.log(timeZoneId)
                     if (timeZoneId == "Asia/Calcutta") {
                         timeZoneId = "Asia/kolkata"
                     }
-                    console.log(timeZoneId)
                     axios.get(`https://worldtimeapi.org/api/timezone/${timeZoneId}`)
                         .then(function (response) {
                             let card = document.querySelector(".card")
@@ -160,6 +158,7 @@ window.getWeather = function () {
                             wind.src = "./images/wind-light.png"
                             document.querySelector(".error").style.display = "block"
                             document.querySelector(".weather").style.display = "none"
+                            document.querySelector("#doodle").style.display = "block"
                         })
                 })
                 .catch(function (error) {
@@ -188,12 +187,14 @@ window.getWeather = function () {
             }
             document.querySelector(".weather").style.display = "block"
             document.querySelector(".error").style.display = "none"
+            document.querySelector("#doodle").style.display = "none"
         })
         .catch(function (error) {
             let card = document.querySelector(".card")
             console.log(error.data);
             document.querySelector(".error").style.display = "block"
             document.querySelector(".weather").style.display = "none"
+            document.querySelector("#doodle").style.display = "block"
             card.classList.remove("day", "evening", "night")
         })
 }
@@ -211,11 +212,9 @@ window.getSun = function () {
             axios.get(`https://maps.googleapis.com/maps/api/timezone/json?location=${x}, ${y}&timestamp=${dt}&key=AIzaSyBHaS_mpmdywnD2gwqk2MRjP0jM0LoHsbM`)
                 .then(function (response) {
                     let timeZoneId = response.data.timeZoneId;
-                    console.log(timeZoneId)
                     if (timeZoneId == "Asia/Calcutta") {
                         timeZoneId = "Asia/kolkata"
                     }
-                    console.log(timeZoneId)
                     axios.get(`https://worldtimeapi.org/api/timezone/${timeZoneId}`)
                         .then(function (response) {
                             let card = document.querySelector(".card")
@@ -224,7 +223,6 @@ window.getSun = function () {
                             let minute = +time.slice(14, 16)
                             let minuteInHours = minute / 60
                             let totalHours = hour + minuteInHours
-                            console.log(totalHours)
                             let dt_Sunrise = dt - sunRise
                             let dt_Sunset = dt - sunSet
                             let dt_SunriseInHours = (dt_Sunrise / (60 * 60))
@@ -243,7 +241,6 @@ window.getSun = function () {
                                 sunRiseTotalHours = totalHours - dt_SunriseInHours
                                 sunSetTotalHours = totalHours - dt_SunsetInHours - 12
                             }
-                            console.log(sunRiseTotalHours, sunSetTotalHours)
                             let hr = (sunRiseTotalHours.toString().split(".")[0]); ///before
                             let hs = (sunSetTotalHours.toString().split(".")[0]); ///before
                             let sunRiseMinutes = (sunRiseTotalHours % 1)
@@ -260,7 +257,6 @@ window.getSun = function () {
                             let sst = `0${hs}:${ss} PM`
                             document.querySelector(".sunrise").innerHTML = srt
                             document.querySelector(".sunset").innerHTML = sst
-                            console.log(srt, sst)
                         })
                 })
                 .catch(function (error) {
