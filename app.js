@@ -82,8 +82,10 @@ window.getWeather = function () {
             document.querySelector(".error").style.display = "none"
         })
         .catch(function (error) {
+            let card = document.querySelector(".card")
             console.log(error.data);
             document.querySelector(".error").style.display = "block"
             document.querySelector(".weather").style.display = "none"
+            card.classList.remove("day", "evening", "night")
         })
 }
