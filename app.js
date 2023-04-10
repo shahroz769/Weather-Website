@@ -279,6 +279,7 @@ window.getSun = function () {
 }
 let splitWeather = new SplitType('.weather-app-split')
 gsap.from('.char', { y: '175px', stagger: 0.08, ease: "power4.inOut", duration: 1.5 })
+gsap.to(".card", {scale: 1,ease: "power4.out", duration: 1.5 }, "-=1.3")
 gsap.to(".card", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, ease: "power4.out", duration: 1.5 }, "-=1.3")
-gsap.fromTo("#doodle", {'clip-path': 'circle(0% at 50% 75%)'}, {'clip-path': 'circle(100% at 50% 75%)', ease: "power4.out", duration: 2.5 }, "-=1")
-gsap.fromTo(".search", { y: '-50px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=2.3")
+gsap.fromTo("#doodle", { y: '-100px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=1")
+gsap.fromTo(".search", { y: '-50px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=1")

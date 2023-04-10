@@ -40,9 +40,10 @@ a {
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
-    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
     opacity: 0;
     transform: translateY(100px);
+    transform: scale(0.8);
 }
 
 .search {
