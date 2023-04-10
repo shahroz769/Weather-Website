@@ -31,12 +31,6 @@ a {
     cursor: pointer;
 }
 
-.app img {
-    width: 300px;
-    position: absolute;
-    margin: 30px 0 0 100px;
-}
-
 .card {
     width: 100%;
     max-width: 470px;
@@ -67,12 +61,6 @@ a {
     border-radius: 30px;
     font-size: 18px;
     width: 75%;
-}
-
-#appImg {
-    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-    opacity: 0;
-    transform: translateY(100px);
 }
 
 .search button {
@@ -237,10 +225,20 @@ a {
     color: #555;
 }
 
-@media only screen and (max-width: 1439px) {
-    .app img {
-        display: none;
-    }
+.app {
+    position: absolute;
+    margin-left: 50px;
+}
+
+.color .char{
+    color: #FF6677;
+}
+
+.weather-app-split{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    color: white;
+    font-size: 72px;
+    line-height: 72px;
 }
 
 @media only screen and (max-width: 500px) {
@@ -254,6 +252,10 @@ a {
         height: 100%;
         filter: none;
         min-height: 100vh;
+    }
+
+    .app h1 {
+        display: none;
     }
 
     .date {
@@ -275,23 +277,21 @@ a {
         padding: 0 2vh 0 2vh;
     }
 
-    .app img {
-        display: none;
+    form {
+        margin-top: 85px;
     }
 
-    form {
-        margin-top: 55px;
-    }
-    .search input{
+    .search input {
         height: 45px;
         font-size: 16px;
     }
-    .search button{
+
+    .search button {
         width: 45px;
         height: 45px;
     }
 
-    .search button img{
+    .search button img {
         width: 14px;
     }
 
@@ -329,4 +329,33 @@ a {
         gap: 20px;
         padding: 0 0.5vh 0 1vh;
     }
+}
+
+@media only screen and (max-width: 1360px) {
+    .weather-app-split {
+        font-size: 60px;
+        line-height: 60px;
+    }
+}
+
+@media only screen and (max-width: 1250px) {
+    .weather-app-split {
+        font-size: 48px;
+        line-height: 48px;
+    }
+}
+
+@media only screen and (max-width: 1125px) {
+    .app {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        position: static;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 50px;
+        margin-bottom: -80px;
+    }
+
 }

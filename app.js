@@ -9,7 +9,6 @@ window.getWeather = function () {
     let sunsetPic = document.querySelector("#sunset");
     let visible = document.querySelector("#visibility");
     let press = document.querySelector("#pressure");
-    // api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key} // Daily Forcast
     axios.get(`https://pro.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
         .then(function (response) {
             console.log(response.data);
@@ -46,7 +45,7 @@ window.getWeather = function () {
                             if (dt >= sunRise && hour < 17) {
                                 card.classList.remove("night", "evening")
                                 card.classList.add("day")
-                                gsap.fromTo(".day", { 'background': 'rgba(223, 255, 251, 1)' }, { 'background-image': 'linear-gradient(180deg, rgba(124, 184, 255, 1) 0%, rgba(223, 255, 251, 1) 57%)', ease: "power4.out", duration: 2})
+                                gsap.fromTo(".day", { 'background': 'rgba(223, 255, 251, 1)' }, { 'background-image': 'linear-gradient(180deg, rgba(124, 184, 255, 1) 0%, rgba(223, 255, 251, 1) 57%)', ease: "power4.out", duration: 2 })
                                 humidity.src = "./images/humidity-dark.png"
                                 wind.src = "./images/wind-dark.png"
                                 sunrisePic.src = "./images/sunrise-dark.png"
@@ -57,7 +56,7 @@ window.getWeather = function () {
                             else if (hour >= 17 && dt < sunSet) {
                                 card.classList.remove("day", "night")
                                 card.classList.add("evening")
-                                gsap.fromTo(".evening", { 'background': 'rgba(48, 72, 101, 1)' }, { 'background': 'linear-gradient(180deg, rgba(48, 72, 101, 1) 0%, rgba(231, 175, 123, 1) 43%)', ease: "power4.out", duration: 2})
+                                gsap.fromTo(".evening", { 'background': 'rgba(48, 72, 101, 1)' }, { 'background': 'linear-gradient(180deg, rgba(48, 72, 101, 1) 0%, rgba(231, 175, 123, 1) 43%)', ease: "power4.out", duration: 2 })
                                 humidity.src = "./images/humidity-light.png"
                                 wind.src = "./images/wind-light.png"
                                 sunrisePic.src = "./images/sunrise-light.png"
@@ -68,7 +67,7 @@ window.getWeather = function () {
                             else if (dt > sunSet || dt < sunRise) {
                                 card.classList.remove("day", "evening",)
                                 card.classList.add("night")
-                                gsap.fromTo(".night", { 'background': 'rgba(46, 51, 56, 1)' }, { 'background-image': 'linear-gradient(180deg, rgba(46, 51, 56, 1) 0%, rgba(40, 67, 107, 1) 36%)', ease: "power4.out", duration: 2})
+                                gsap.fromTo(".night", { 'background': 'rgba(46, 51, 56, 1)' }, { 'background-image': 'linear-gradient(180deg, rgba(46, 51, 56, 1) 0%, rgba(40, 67, 107, 1) 36%)', ease: "power4.out", duration: 2 })
                                 humidity.src = "./images/humidity-light.png"
                                 wind.src = "./images/wind-light.png"
                                 sunrisePic.src = "./images/sunrise-light.png"
@@ -278,7 +277,8 @@ window.getSun = function () {
         .catch(function (error) {
         })
 }
-gsap.to("#appImg", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, ease: "power4.out", duration: 1.5 })
+let splitWeather = new SplitType('.weather-app-split')
+gsap.from('.char', { y: '175px', stagger: 0.08, ease: "power4.inOut", duration: 1.5 })
 gsap.to(".card", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', opacity: 1, y: 0, ease: "power4.out", duration: 1.5 }, "-=1.3")
-gsap.fromTo("#doodle", { y: '-200px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=1")
-gsap.fromTo(".search", { y: '-50px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=1.3")
+gsap.fromTo("#doodle", {'clip-path': 'circle(0% at 50% 75%)'}, {'clip-path': 'circle(100% at 50% 75%)', ease: "power4.out", duration: 2.5 }, "-=1")
+gsap.fromTo(".search", { y: '-50px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=2.3")
