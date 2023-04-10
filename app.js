@@ -1,6 +1,6 @@
 window.getWeather = function () {
     let cityName = document.querySelector("#cityName").value;
-    let API_KEY = '0d28b08855d3bdaa742b92c7ef323ee4'
+    let API_KEY = '3500aa8ab775cb0cb97ead2b9fc41866'
     let weatherIcon = document.querySelector(".weather-icon");
     let humidity = document.querySelector("#humidity");
     let wind = document.querySelector("#wind");
@@ -9,7 +9,8 @@ window.getWeather = function () {
     let sunsetPic = document.querySelector("#sunset");
     let visible = document.querySelector("#visibility");
     let press = document.querySelector("#pressure");
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
+    // api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key} // Daily Forcast
+    axios.get(`https://pro.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
         .then(function (response) {
             console.log(response.data);
             let weatherCondition = response.data.weather[0].main
@@ -157,9 +158,6 @@ window.getWeather = function () {
                             document.querySelector("#doodle").style.display = "block"
                             card.style.background = "#171d25"
                             // ------------------------------------------------------------------------------------------------------------------------------------------------------
-                        //     let doodle = document.querySelector("#doodle")
-                        //     doodle.style = ""
-                        //     gsap.fromTo("#doodle", { y: '-200px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=1")
                         })
                 })
                 .catch(function (error) {
@@ -211,15 +209,12 @@ window.getWeather = function () {
             card.style.background = "#171d25"
             card.classList.remove("day", "evening", "night")
             // ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-            // let doodle = document.querySelector("#doodle")
-            // doodle.style = ""
-            // gsap.fromTo("#doodle", { y: '-200px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out", duration: 1.5 }, "-=1")
         })
 }
 window.getSun = function () {
     let cityName = document.querySelector("#cityName").value;
-    let API_KEY = '0d28b08855d3bdaa742b92c7ef323ee4'
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
+    let API_KEY = '3500aa8ab775cb0cb97ead2b9fc41866'
+    axios.get(`https://pro.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
         .then(function (response) {
             console.log(response.data);
             let x = response.data.coord.lat
@@ -259,8 +254,8 @@ window.getSun = function () {
                                 sunRiseTotalHours = totalHours - dt_SunriseInHours
                                 sunSetTotalHours = totalHours - dt_SunsetInHours - 12
                             }
-                            let hr = (sunRiseTotalHours.toString().split(".")[0]); ///before
-                            let hs = (sunSetTotalHours.toString().split(".")[0]); ///before
+                            let hr = (sunRiseTotalHours.toString().split(".")[0]);
+                            let hs = (sunSetTotalHours.toString().split(".")[0]);
                             let sunRiseMinutes = (sunRiseTotalHours % 1)
                             let sunSetMinutes = (sunSetTotalHours % 1)
                             let sr = Math.round(sunRiseMinutes * 60)
