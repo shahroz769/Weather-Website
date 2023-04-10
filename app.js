@@ -216,7 +216,6 @@ window.getSun = function () {
     let API_KEY = '3500aa8ab775cb0cb97ead2b9fc41866'
     axios.get(`https://pro.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
         .then(function (response) {
-            console.log(response.data);
             let x = response.data.coord.lat
             let y = response.data.coord.lon
             let dt = response.data.dt
