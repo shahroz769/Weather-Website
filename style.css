@@ -24,6 +24,7 @@ body {
 #doodle {
     width: 100%;
     margin: auto;
+    /* clip-path: circle(0% at 50% 75%); */
 }
 
 a {
