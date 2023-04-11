@@ -223,22 +223,47 @@ a {
 
 .day {
     color: #555;
+    background: rgba(124, 184, 255, 1)
 }
+
+.evening {
+    background: rgba(48, 72, 101, 1);
+}
+
+.night {
+    background: rgba(46, 51, 56, 1);
+}
+/* 
+.weather{
+    opacity: 0;
+}
+
+.weather *{
+    transform: translateY(20px);
+}
+.weather-icon{
+    transform: translateY(-50px);
+} */
 
 .app {
     position: absolute;
     margin-left: 50px;
 }
 
-.color .char{
+.color .char {
     color: #FF6677;
 }
 
-.weather-app-split{
+.weather-app-split {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     color: white;
     font-size: 72px;
     line-height: 72px;
+    opacity: 0;
+}
+
+.char {
+    transform: translateY(175px);
 }
 
 @media only screen and (max-width: 500px) {

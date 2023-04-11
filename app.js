@@ -45,7 +45,7 @@ window.getWeather = function () {
                             if (dt >= sunRise && hour < 17) {
                                 card.classList.remove("night", "evening")
                                 card.classList.add("day")
-                                gsap.fromTo(".day", { 'background': 'rgba(223, 255, 251, 1)' }, { 'background-image': 'linear-gradient(180deg, rgba(124, 184, 255, 1) 0%, rgba(223, 255, 251, 1) 57%)', ease: "power4.out", duration: 2 })
+                                gsap.to(".day", { 'background-image': 'linear-gradient(180deg, rgba(124, 184, 255, 1) 0%, rgba(223, 255, 251, 1) 57%)', ease: "power4.out", duration: 3 },'-=2')
                                 humidity.src = "./images/humidity-dark.png"
                                 wind.src = "./images/wind-dark.png"
                                 sunrisePic.src = "./images/sunrise-dark.png"
@@ -56,7 +56,7 @@ window.getWeather = function () {
                             else if (hour >= 17 && dt < sunSet) {
                                 card.classList.remove("day", "night")
                                 card.classList.add("evening")
-                                gsap.fromTo(".evening", { 'background': 'rgba(48, 72, 101, 1)' }, { 'background': 'linear-gradient(180deg, rgba(48, 72, 101, 1) 0%, rgba(231, 175, 123, 1) 43%)', ease: "power4.out", duration: 2 })
+                                gsap.to(".evening", { 'background': 'linear-gradient(180deg, rgba(48, 72, 101, 1) 0%, rgba(231, 175, 123, 1) 43%)', ease: "power4.out", duration: 3 },'-=2')
                                 humidity.src = "./images/humidity-light.png"
                                 wind.src = "./images/wind-light.png"
                                 sunrisePic.src = "./images/sunrise-light.png"
@@ -67,7 +67,7 @@ window.getWeather = function () {
                             else if (dt > sunSet || dt < sunRise) {
                                 card.classList.remove("day", "evening",)
                                 card.classList.add("night")
-                                gsap.fromTo(".night", { 'background': 'rgba(46, 51, 56, 1)' }, { 'background-image': 'linear-gradient(180deg, rgba(46, 51, 56, 1) 0%, rgba(40, 67, 107, 1) 36%)', ease: "power4.out", duration: 2 })
+                                gsap.to(".night", { 'background-image': 'linear-gradient(180deg, rgba(46, 51, 56, 1) 0%, rgba(40, 67, 107, 1) 36%)', ease: "power4.out", duration: 3 },'-=2')
                                 humidity.src = "./images/humidity-light.png"
                                 wind.src = "./images/wind-light.png"
                                 sunrisePic.src = "./images/sunrise-light.png"
@@ -278,7 +278,10 @@ window.getSun = function () {
         })
 }
 let splitWeather = new SplitType('.weather-app-split')
-gsap.from('.char', { y: '175px', stagger: 0.08, ease: "power4.inOut", duration: 1.5 })
-gsap.to(".card", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', y: 0, ease: "power4.out", duration: 1.5 }, "-=1.3")
-gsap.fromTo(".search", { y: '-100px'}, { y: 0, ease: "power4.out", duration: 1.5,delay:1.5 })
-gsap.fromTo("#doodle", {'clip-path': 'circle(0% at 50% 75%)'}, {'clip-path': 'circle(200% at 50% 50%)', ease: "power4.out", duration: 5 }, "-=1")
+var tl = gsap.timeline({ defaults: { duration: 1 } })
+tl
+    .to('.weather-app-split', { opacity: 1, duration: .001 }, '-=1.5')
+    .to('.char', { y: 0, stagger: 0.08, ease: "power4.inOut" }, '-=.3')
+    .to(".card", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', y: 0, ease: "power4.out" }, '-=.3')
+    .fromTo(".search", { y: '-100px' }, { y: 0, ease: "power4.out" }, '-=.5')
+    .fromTo("#doodle", { 'clip-path': 'circle(0% at 50% 75%)' }, { 'clip-path': 'circle(200% at 50% 50%)', ease: "power4.out", duration: 4 }, '-=.5')
