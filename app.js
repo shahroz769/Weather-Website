@@ -174,7 +174,7 @@ window.getWeather = function () {
                 } else {
                     weatherIcon.src = "./images/clear.png"
                 }
-            } else if (weatherCondition === "Rain") {
+            } else if (weatherCondition === "Rain" || weatherCondition === "Thunderstorm") {
                 weatherIcon.src = "./images/rain.png"
             } else if (weatherCondition === "Drizzle") {
                 if (dt > sunSet || dt < sunRise) {
