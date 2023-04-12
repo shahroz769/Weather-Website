@@ -20,6 +20,12 @@ body {
 .header {
     display: none;
 }
+.app h1 {
+        cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
 
 #doodle {
     width: 100%;
@@ -74,6 +80,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .search button:active {
@@ -241,7 +248,7 @@ a {
     margin-left: 50px;
 }
 
-.color .char {
+.color, .color .char {
     color: #FF6677;
 }
 
@@ -362,16 +369,17 @@ a {
 }
 
 @media only screen and (max-width: 1125px) {
-    .app {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
+    .app{
         position: static;
         margin-left: 0;
         margin-right: 0;
         margin-top: 50px;
         margin-bottom: -80px;
     }
-
+    .app a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
 }
