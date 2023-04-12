@@ -45,7 +45,7 @@ window.getWeather = function () {
                             if (dt >= sunRise && hour < 17) {
                                 card.classList.remove("night", "evening")
                                 card.classList.add("day")
-                                gsap.to(".day", { 'background-image': 'linear-gradient(180deg, rgba(124, 184, 255, 1) 0%, rgba(223, 255, 251, 1) 57%)', ease: "power4.out", duration: 3 },'-=2')
+                                gsap.fromTo(".day", { 'background': 'rgba(223, 255, 251, 1)' }, { 'background-image': 'linear-gradient(180deg, rgba(124, 184, 255, 1) 0%, rgba(223, 255, 251, 1) 57%)', ease: "power4.out", duration: 2 })
                                 humidity.src = "./images/humidity-dark.png"
                                 wind.src = "./images/wind-dark.png"
                                 sunrisePic.src = "./images/sunrise-dark.png"
@@ -56,7 +56,7 @@ window.getWeather = function () {
                             else if (hour >= 17 && dt < sunSet) {
                                 card.classList.remove("day", "night")
                                 card.classList.add("evening")
-                                gsap.to(".evening", { 'background': 'linear-gradient(180deg, rgba(48, 72, 101, 1) 0%, rgba(231, 175, 123, 1) 43%)', ease: "power4.out", duration: 3 },'-=2')
+                                gsap.fromTo(".evening", { 'background': 'rgba(48, 72, 101, 1)' }, { 'background': 'linear-gradient(180deg, rgba(48, 72, 101, 1) 0%, rgba(231, 175, 123, 1) 43%)', ease: "power4.out", duration: 2 })
                                 humidity.src = "./images/humidity-light.png"
                                 wind.src = "./images/wind-light.png"
                                 sunrisePic.src = "./images/sunrise-light.png"
@@ -67,7 +67,7 @@ window.getWeather = function () {
                             else if (dt > sunSet || dt < sunRise) {
                                 card.classList.remove("day", "evening",)
                                 card.classList.add("night")
-                                gsap.to(".night", { 'background-image': 'linear-gradient(180deg, rgba(46, 51, 56, 1) 0%, rgba(40, 67, 107, 1) 36%)', ease: "power4.out", duration: 3 },'-=2')
+                                gsap.fromTo(".night", { 'background': 'rgba(46, 51, 56, 1)' }, { 'background-image': 'linear-gradient(180deg, rgba(46, 51, 56, 1) 0%, rgba(40, 67, 107, 1) 36%)', ease: "power4.out", duration: 2 })
                                 humidity.src = "./images/humidity-light.png"
                                 wind.src = "./images/wind-light.png"
                                 sunrisePic.src = "./images/sunrise-light.png"

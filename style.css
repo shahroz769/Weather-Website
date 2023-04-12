@@ -223,15 +223,6 @@ a {
 
 .day {
     color: #555;
-    background: rgba(124, 184, 255, 1)
-}
-
-.evening {
-    background: rgba(48, 72, 101, 1);
-}
-
-.night {
-    background: rgba(46, 51, 56, 1);
 }
 /* 
 .weather{
