@@ -272,7 +272,7 @@ a {
         text-align: center;
         height: 100%;
         filter: none;
-        min-height: 100vh;
+        height: 100svh;
     }
 
     .search button {
@@ -329,7 +329,7 @@ a {
         left: 0;
         z-index: 9999;
         width: 100%;
-        background: rgba(0, 0, 0, 0.23);
+        background: rgba(0, 0, 0, 0);
         backdrop-filter: blur(11.8px);
         -webkit-backdrop-filter: blur(11.8px);
     }
@@ -340,7 +340,7 @@ a {
 
     .header p {
         font-size: 24px;
-        color: #fff;
+        color: #ffffff;
         font-weight: 600;
     }
 }
