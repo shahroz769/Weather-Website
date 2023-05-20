@@ -272,11 +272,11 @@ a {
         text-align: center;
         height: 100%;
         filter: none;
-        height: 100dvh;
+        min-height: 100vh;
     }
 
     .search button {
-        padding: 10px 40px;
+        padding: 10px 50px;
         font-size: 16px;
     }
 
