@@ -272,7 +272,7 @@ a {
         text-align: center;
         height: 100%;
         filter: none;
-        height: 100svh;
+        height: 100dvh;
     }
 
     .search button {
