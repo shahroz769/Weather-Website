@@ -60,22 +60,25 @@ a {
 .search input {
     border: none;
     outline: none;
-    background: #ebfffc;
-    color: #555;
+    color: #171d25;
     padding: 10px 25px;
     height: 60px;
-    border-radius: 30px;
-    font-size: 18px;
-    width: 75%;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 14px;
+    background-color: transparent;
 }
 
 .search button {
     border: 0;
     outline: 0;
-    background: #ebfffc;
-    border-radius: 50%;
+    background: #FF6677;
+    color: #ffffff;
     width: 60px;
     height: 60px;
+    border-radius: 0 14px 14px 0;
+    padding: 10px 50px;
+    font-size: 16px;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -84,17 +87,7 @@ a {
 }
 
 .search button:active {
-    background-color: #cedbd9;
-}
-
-.search button div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.search button img {
-    width: 16px;
+    background-color: #ff9da8;
 }
 
 .weather-icon {
@@ -208,6 +201,11 @@ a {
     text-align: center;
 }
 
+.search {
+    background-color: #ffffff;
+    border-radius: 14px;
+}
+
 .date {
     font-size: 24px;
     margin-top: 20px;
@@ -277,6 +275,11 @@ a {
         min-height: 100vh;
     }
 
+    .search button {
+        padding: 10px 40px;
+        font-size: 16px;
+    }
+
     .app h1 {
         display: none;
     }
@@ -305,17 +308,13 @@ a {
     }
 
     .search input {
-        height: 45px;
+        height: 56px;
         font-size: 16px;
     }
 
     .search button {
-        width: 45px;
-        height: 45px;
-    }
-
-    .search button img {
-        width: 14px;
+        width: 56px;
+        height: 56px;
     }
 
     .header {

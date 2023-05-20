@@ -30,10 +30,8 @@
     </div>
     <div class="card">
         <form class="search" onsubmit="getWeather(), getSun(); return false">
-            <input type="text" placeholder="Search city..." spellcheck="false" id="cityName">
-            <button type="submit">
-                <div><img src="./images/search.png"></div>
-            </button>
+            <input autocomplete="off" type="text" placeholder="Search city..." spellcheck="false" id="cityName">
+            <button type="submit">Search</button>
         </form>
         <div class="error">Error in fetching data</div>
         <div class="doodle">

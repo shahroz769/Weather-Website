@@ -283,5 +283,6 @@ tl
     .to('.weather-app-split', { opacity: 1, duration: .001 }, '-=1.5')
     .to('.char', { y: 0, stagger: 0.08, ease: "power4.inOut" }, '-=.3')
     .to(".card", { 'clip-path': 'polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)', y: 0, ease: "power4.out" }, '-=.3')
-    .fromTo(".search", { y: '-100px' }, { y: 0, ease: "power4.out" }, '-=.5')
-    .fromTo("#doodle", { 'clip-path': 'circle(0% at 50% 75%)' }, { 'clip-path': 'circle(200% at 50% 50%)', ease: "power4.out", duration: 4 }, '-=.5')
+    .fromTo(".search", { y: '-100px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out" }, '-=.5')
+    // .fromTo("#doodle", { 'clip-path': 'circle(0% at 50% 75%)' }, { 'clip-path': 'circle(200% at 50% 50%)', ease: "power4.out", duration: 4 }, '-=.5')
+    .fromTo("#doodle", { y: '300px', opacity: 0 }, { y: 0, opacity: 1, ease: "power4.out" }, '-=1')
