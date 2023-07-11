@@ -28,9 +28,12 @@ window.getWeather = function () {
             let x = response.data.coord.lat
             let y = response.data.coord.lon
             let dt = response.data.dt
+            console.log(x)
+            console.log(y)
+            console.log(dt)
             let sunRise = response.data.sys.sunrise
             let sunSet = response.data.sys.sunset
-            axios.get(`https://maps.googleapis.com/maps/api/timezone/json?location=${x}, ${y}&timestamp=${dt}&key=AIzaSyBHaS_mpmdywnD2gwqk2MRjP0jM0LoHsbM`)
+            axios.get(`https://maps.googleapis.com/maps/api/timezone/json?location=${x}, ${y}&timestamp=${dt}&key=AIzaSyBMig1KkSsJjciGfkEwj01GQQ0Z9gPU7tQ`)
                 .then(function (response) {
                     let timeZoneId = response.data.timeZoneId;
                     if (timeZoneId == "Asia/Calcutta") {
