@@ -216,6 +216,8 @@ window.getWeather = function () {
 window.getSun = function () {
     let cityName = document.querySelector("#cityName").value;
     let API_KEY = '3500aa8ab775cb0cb97ead2b9fc41866'
+    console.log(cityName)
+    console.log(API_KEY)
     axios.get(`https://pro.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`)
         .then(function (response) {
             let x = response.data.coord.lat
@@ -223,9 +225,15 @@ window.getSun = function () {
             let dt = response.data.dt
             let sunRise = response.data.sys.sunrise
             let sunSet = response.data.sys.sunset
-            axios.get(`https://maps.googleapis.com/maps/api/timezone/json?location=${x}, ${y}&timestamp=${dt}&key=AIzaSyBHaS_mpmdywnD2gwqk2MRjP0jM0LoHsbM`)
+            console.log(response)
+            console.log(x)
+            console.log(y)
+            console.log(dt)
+            axios.get(`https://maps.googleapis.com/maps/api/timezone/json?location=${x}, ${y}&timestamp=${dt}&key=AIzaSyBMig1KkSsJjciGfkEwj01GQQ0Z9gPU7tQ`)
                 .then(function (response) {
                     let timeZoneId = response.data.timeZoneId;
+                    console.log(response)
+                    console.log(timeZoneId)
                     if (timeZoneId == "Asia/Calcutta") {
                         timeZoneId = "Asia/kolkata"
                     }
